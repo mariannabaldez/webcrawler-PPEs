@@ -1,7 +1,6 @@
-import datetime
 from datetime import date
-from distutils.util import execute
 import requests
+from distutils.util import execute
 import zipfile
 import io
 import warnings
@@ -41,28 +40,21 @@ column_names = pd.DataFrame(file)["Nome_PEP"]
 
 
 #nomes a sereem verificados
-names = ['ROBERTO FURIAN ARDENGHY',
-         'NICOLAS SIMONE',
-         'JOAQUIM SILV E LUNA',
-         'CLAUDIO ROGERIO LINASSI MASTELLA',
-         'RODRIGO ARAUJO ALVES',
-         'FERNANDO ASSUMPCAO BORGES',
-         'JOAO HENRIQUE RITTERSHAUSSEN',
-         'RODRIGO COSTA LIMA E SILVA',
-         'SALVADOR DAHAN']
+names = {
+        'ROBERTO FURIAN ARDENGHY': "NÃO É PPE",
+        'NICOLAS SIMONE': "NÃO É PPE",
+        'JOAQUIM SILV E LUNA': "NÃO É PPE",
+        'CLAUDIO ROGERIO LINASSI MASTELLA': "NÃO É PPE",
+        'RODRIGO ARAUJO ALVES': "NÃO É PPE",
+        'FERNANDO ASSUMPCAO BORGES': "NÃO É PPE",
+        'JOAO HENRIQUE RITTERSHAUSSEN': "NÃO É PPE",
+        'RODRIGO COSTA LIMA E SILVA': "NÃO É PPE",
+        'SALVADOR DAHAN': "NÃO É PPE",
+         }
+for name in column_names:
+    for k, v in name:
+        if k == name:
+            v = "É PPE"
 
-pep = {}
-for name_in_column in column_names:
-    for name in names:
-        if name == name_in_column:
-            name.append(pep)
-
-
-
-
-
-
-
-
-
-
+for k, v in names:
+    print(f'{k} - {v}')
